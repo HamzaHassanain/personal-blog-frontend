@@ -1,38 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .App {
+  font-family: sans-serif;
+  color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+.container {
+  width: 50%;
+  margin: auto;
+}
+.navbar {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar .navbar-list {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.navbar .navbar-list .nav-item {
+  font-size: 1.3rem;
+  padding: 2rem 1rem;
+  list-style: none;
+}
+.nav-item .nav-link {
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.BlogItem {
+  margin: 1rem 0;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 1rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.BlogItem img {
+  width: 100%;
+}
+.SingleBlog img {
+  /* margin: 1rem; */
+  width: 100%;
+  /* max-height: 70vh; */
+}
+.SingleBlog ul,
+.SingleBlog ol {
+  padding-left: 2rem;
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 70%;
+    margin: auto;
   }
-  to {
-    transform: rotate(360deg);
+}
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+
+  .BlogItem {
+    grid-template-columns: 1fr;
+  }
+  .BlogItem img {
+    width: 40%;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    margin: auto;
+  }
+
+  .BlogItem img {
+    width: 60%;
   }
 }
