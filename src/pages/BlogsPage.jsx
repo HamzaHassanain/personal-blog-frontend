@@ -1,12 +1,11 @@
 import React from "react";
 import Hero from "../components/Hero";
 import BlogList from "../components/BlogList";
-import { Link, useHref, useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 export default function BlogsPage() {
   const navigate = useNavigate();
   const { data, error } = useLoaderData();
-  const href = useHref();
   if (error || !data) {
     navigate("/error");
     return;
