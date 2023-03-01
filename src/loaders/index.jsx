@@ -19,8 +19,9 @@ export async function rootLoader() {
       blogs: blogsRes.data?.data,
       projects: projectsRes.data?.data,
       links: linksRes.data?.data,
-      dashboard: dashboardRes.data?.data,
+      dashboard: dashboardRes?.data?.data ? dashboardRes?.data?.data[0] : {},
     };
+
     return { data: parsed, error: null };
   } catch (error) {
     error.additionalMessage = "an unexpected error happened";

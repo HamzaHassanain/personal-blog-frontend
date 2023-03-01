@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../components/Hero";
 import BlogList from "../components/BlogList";
-import { Link, useHref, useLoaderData } from "react-router-dom";
+import { Link, useHref, useLoaderData, useNavigate } from "react-router-dom";
 
 export default function BlogsPage() {
+  const navigate = useNavigate();
   const { data, error } = useLoaderData();
   const href = useHref();
-  const { dashboard, links, projects, blogs } = data;
-  console.log(projects, blogs);
-  if (!dashboard) {
-    console.log(error);
+  if (error || !data) {
+    navigate("/error");
+    return;
   }
+  let { dashboard, links, projects, blogs } = data;
+
   return (
     <div className="BlogsPage">
-      <Hero dashboard={dashboard[0]} links={links} />
+      <Hero dashboard={dashboard} links={links} />
       <br />
       <br />
       <div className="Filter">
