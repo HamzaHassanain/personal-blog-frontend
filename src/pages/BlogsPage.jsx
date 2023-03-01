@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Hero from "../components/Hero";
 import BlogList from "../components/BlogList";
 import { Link, useHref, useLoaderData, useNavigate } from "react-router-dom";

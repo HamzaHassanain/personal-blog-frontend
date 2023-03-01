@@ -15,6 +15,7 @@ export async function rootLoader() {
       allBlogsOfType("dashboard"),
     ]);
     const [blogsRes, projectsRes, linksRes, dashboardRes] = data;
+    if (!dashboardRes) throw new Error("");
     const parsed = {
       blogs: blogsRes.data?.data,
       projects: projectsRes.data?.data,
