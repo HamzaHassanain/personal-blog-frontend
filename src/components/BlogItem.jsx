@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 export default function BlogItem({ blog }) {
   return (
     <div className="BlogItem">
+      <div className="image">
+        <img src={blog.image?.url} alt={blog.image?.id} />
+      </div>
       <div className="text">
         <Link to={"/blogs/" + blog.slug} className="link">
           <h2> {blog.title}</h2>

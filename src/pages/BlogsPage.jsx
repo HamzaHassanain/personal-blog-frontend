@@ -17,7 +17,7 @@ export default function BlogsPage() {
       <br />
       <br />
       <div className="Filter">
-        <Link to={"/"} className="BlogsList-header link">
+        <Link to={"/projects"} className="BlogsList-header link">
           Projects
         </Link>
         <Link to={"/blogs"} className="BlogsList-header link">
@@ -26,8 +26,13 @@ export default function BlogsPage() {
       </div>
       {href === "/blogs" ? (
         <BlogList blogs={blogs} />
-      ) : (
+      ) : href === "/projects" ? (
         <BlogList blogs={projects} />
+      ) : (
+        <>
+          <BlogList blogs={projects} />
+          <BlogList blogs={blogs} />
+        </>
       )}
     </div>
   );

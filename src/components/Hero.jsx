@@ -8,7 +8,7 @@ export default function Hero({ dashboard, links }) {
       <div className="hero-image">
         <img src={image.url} alt={image.id} />
       </div>
-      <div>
+      <div className="text-container">
         <div className="text">
           <h2>
             {title} <span>{describtion}</span>
