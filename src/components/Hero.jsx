@@ -1,25 +1,38 @@
 import React from "react";
 
-export default function Hero() {
+export default function Hero({ dashboard, links }) {
+  // if(!data)
+  const { title, describtion, image } = dashboard;
   return (
-    <div className="hero">
-      <div className="text">
-        <h1>Hello to my website</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta quo
-          itaque sunt.
-        </p>
+    <div className="Hero">
+      <div className="hero-image">
+        <img src={image.url} alt={image.id} />
       </div>
-      <div className="links">
-        <a href="https://linkedin.com" className="link">
-          <img src=".." alt="some" className="link-img" /> LinkedIn
-        </a>
-        <a href="https://linkedin.com" className="link">
-          <img src=".." alt="some" className="link-img" /> LinkedIn
-        </a>
-        <a href="https://linkedin.com" className="link">
-          <img src=".." alt="some" className="link-img" /> LinkedIn
-        </a>
+      <div>
+        <div className="text">
+          <h2>
+            {title} <span>{describtion}</span>
+          </h2>
+        </div>
+        <div className="links">
+          {links.map((link) => (
+            <a
+              href={link.body}
+              key={link.body}
+              className="link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src={link.image?.url}
+                alt={link.image?.id}
+                className="link-img"
+                width={32}
+              />
+              {link.title}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import BlogsPage from "./pages/BlogsPage";
 import SingleBlog from "./pages/SingleBlog";
-import AboutPage from "./pages/AboutPage";
+import { rootLoader } from "./loaders";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,16 +13,19 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "blogs/:slug",
+        element: <SingleBlog />,
+      },
+
+      {
         path: "",
+        loader: rootLoader,
         element: <BlogsPage />,
       },
       {
-        path: "blogs/:id",
-        element: <SingleBlog />,
-      },
-      {
-        path: "about/",
-        element: <AboutPage />,
+        path: "/blogs",
+        loader: rootLoader,
+        element: <BlogsPage />,
       },
     ],
   },
