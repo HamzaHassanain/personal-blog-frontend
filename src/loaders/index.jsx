@@ -9,15 +9,13 @@ const singleBlog = (slug) => axios.get(`/blogs/single/${slug}`);
 export async function rootLoader() {
   try {
     const data = await Promise.all([
-      allBlogsOfType("blog"),
       allBlogsOfType("project"),
       allBlogsOfType("link"),
       allBlogsOfType("dashboard"),
     ]);
-    const [blogsRes, projectsRes, linksRes, dashboardRes] = data;
+    const [projectsRes, linksRes, dashboardRes] = data;
     if (!dashboardRes) throw new Error("");
     const parsed = {
-      blogs: blogsRes.data?.data,
       projects: projectsRes.data?.data,
       links: linksRes.data?.data,
       dashboard: dashboardRes?.data?.data ? dashboardRes?.data?.data[0] : {},

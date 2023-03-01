@@ -11,7 +11,7 @@ export default function BlogsPage() {
     navigate("/error");
     return;
   }
-  let { dashboard, links, projects, blogs } = data;
+  let { dashboard, links, projects } = data;
 
   return (
     <div className="BlogsPage">
@@ -19,23 +19,11 @@ export default function BlogsPage() {
       <br />
       <br />
       <div className="Filter">
-        <Link to={"/projects"} className="BlogsList-header link">
-          Projects
-        </Link>
-        <Link to={"/blogs"} className="BlogsList-header link">
-          Posts
+        <Link to={"/"} className="BlogsList-header link">
+          Recent Projects
         </Link>
       </div>
-      {href === "/blogs" ? (
-        <BlogList blogs={blogs} />
-      ) : href === "/projects" ? (
-        <BlogList blogs={projects} />
-      ) : (
-        <>
-          <BlogList blogs={projects} />
-          <BlogList blogs={blogs} />
-        </>
-      )}
+      <BlogList blogs={projects} />
     </div>
   );
 }

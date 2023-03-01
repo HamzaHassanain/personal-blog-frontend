@@ -22,16 +22,6 @@ const router = createBrowserRouter([
         loader: rootLoader,
         element: <BlogsPage />,
       },
-      {
-        path: "/blogs",
-        loader: rootLoader,
-        element: <BlogsPage />,
-      },
-      {
-        path: "/projects",
-        loader: rootLoader,
-        element: <BlogsPage />,
-      },
     ],
   },
 ]);

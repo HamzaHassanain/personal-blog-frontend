@@ -10,9 +10,9 @@ export default function Hero({ dashboard, links }) {
       </div>
       <div className="text-container">
         <div className="text">
-          <h2>
+          <h1>
             {title} <span>{describtion}</span>
-          </h2>
+          </h1>
         </div>
         <div className="links">
           {links.map((link) => (
