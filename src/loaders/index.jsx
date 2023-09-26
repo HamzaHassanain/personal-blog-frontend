@@ -4,23 +4,23 @@ axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 // const allBlogs = (_) => axios.get("/blogs/all");
 const allBlogsOfType = (type) => axios.get(`/blogs/of-type/${type}`);
+const allBlogs = () => axios.get(`/blogs/all`);
 const singleBlog = (slug) => axios.get(`/blogs/single/${slug}`);
 
 export async function rootLoader() {
   try {
     const data = await Promise.all([
-      allBlogsOfType("project"),
+      allBlogs(),
       allBlogsOfType("link"),
       allBlogsOfType("dashboard"),
     ]);
-    const [projectsRes, linksRes, dashboardRes] = data;
+    const [allBlogsRes, linksRes, dashboardRes] = data;
     if (!dashboardRes) throw new Error("");
     const parsed = {
-      projects: projectsRes.data?.data,
+      allBlogs: allBlogsRes.data?.data,
       links: linksRes.data?.data,
       dashboard: dashboardRes?.data?.data ? dashboardRes?.data?.data[0] : {},
     };
-
     return { data: parsed, error: null };
   } catch (error) {
     error.additionalMessage = "an unexpected error happened";

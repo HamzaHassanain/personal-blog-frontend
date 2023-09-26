@@ -5,7 +5,7 @@ export default function BlogList({ blogs }) {
   let i = 0;
   return (
     <div className="BlogList">
-      {blogs.map((blog) => (
+      {blogs?.map((blog) => (
         <BlogItem key={i++} blog={blog} />
       ))}
     </div>

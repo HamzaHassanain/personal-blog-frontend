@@ -1,19 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
+  let { pathname } = useLocation();
+  console.log(pathname);
+  pathname = pathname.replace("blogs/", "");
   return (
     <nav className="navbar container">
       <ul className="navbar-list">
         <li className="nav-item">
-          <Link className="link" to={"/"}>
-            Home
+          <Link className="link dir" to={"/"}>
+            Home{pathname === "/" ? "" : pathname}
           </Link>
-        </li>
-        <li className="nav-item">
-          {/* <Link className="nav-link" to={"/about"}>
-            About
-          </Link> */}
         </li>
       </ul>
     </nav>

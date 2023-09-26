@@ -6,7 +6,6 @@ export default function SingleBlog() {
   const navigate = useNavigate();
   const [item, setItem] = useState();
   const [itemError, setError] = useState();
-  console.log();
   useEffect(() => {
     async function load() {
       const { data, error } = await singleBlogLoader(slug);
@@ -16,10 +15,10 @@ export default function SingleBlog() {
     load();
   }, [slug]);
   console.error(itemError);
-  console.log(item);
   if (itemError) {
     navigate("/error");
   }
+  console.log(item);
   return (
     <>
       <div className="SingleBlog">

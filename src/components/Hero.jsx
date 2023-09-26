@@ -6,7 +6,7 @@ export default function Hero({ dashboard, links }) {
   return (
     <div className="Hero">
       <div className="hero-image">
-        <img src={image.url} alt={image.id} />
+        <img src={image?.url} alt={image?.id} />
       </div>
       <div className="text-container">
         <div className="text">
@@ -15,7 +15,7 @@ export default function Hero({ dashboard, links }) {
           </h1>
         </div>
         <div className="links">
-          {links.map((link) => (
+          {links?.map((link) => (
             <a
               href={link.body}
               key={link.body}
@@ -29,7 +29,7 @@ export default function Hero({ dashboard, links }) {
                 className="link-img"
                 width={32}
               />
-              {link.title}
+              {link?.title}
             </a>
           ))}
         </div>

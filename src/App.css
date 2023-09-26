@@ -159,6 +159,10 @@
 .SingleBlog ol {
   padding-left: 2rem;
 }
+
+.navbar-list .nav-item .dir {
+  text-transform: uppercase !important;
+}
 @media (max-width: 1024px) {
   .container {
     width: 70%;
